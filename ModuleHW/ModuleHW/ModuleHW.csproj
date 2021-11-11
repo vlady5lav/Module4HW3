@@ -29,4 +29,10 @@
 		<PackageReference Include="System.Text.Json" Version="6.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="settings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
 </Project>
