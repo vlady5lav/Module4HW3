@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ModuleHW
 {
@@ -6,12 +10,33 @@ namespace ModuleHW
     {
         public void Run()
         {
-            var serviceProvider = new ServiceCollection()
-                .AddDbContext<ApplicationContext>()
-                .BuildServiceProvider();
+            var configFile = "appsettings.json";
+            var configFileInfo = new FileInfo(configFile);
 
-            var applicationContext = serviceProvider.GetService<ApplicationContext>();
-            applicationContext.SaveChanges();
+            if (configFileInfo.Exists)
+            {
+                IConfiguration configuration = new ConfigurationBuilder().AddJsonFile(configFile).Build();
+                var connectionString = configuration.GetConnectionString("SuperTestDB123");
+
+                var serviceProvider = new ServiceCollection()
+                    .AddTransient<ApplicationContext>()
+                    .AddDbContext<ApplicationContext>(s => s.UseSqlServer(connectionString, s => s.CommandTimeout(20)))
+                    .BuildServiceProvider();
+
+                using var db = serviceProvider.GetService<ApplicationContext>();
+
+                // var dbContextOptionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
+                // dbContextOptionsBuilder.UseSqlServer(connectionString, s => s.CommandTimeout(20));
+                // using var db = new ApplicationContext(dbContextOptionsBuilder.Options);
+
+                db.Database.Migrate();
+                db.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine($"ERROR! There is no config file \"{configFile}\" provided!");
+                Environment.Exit(0);
+            }
         }
     }
 }
