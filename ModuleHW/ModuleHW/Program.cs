@@ -1,4 +1,4 @@
-﻿namespace ModuleHW
+﻿namespace ModuleHW.StartApplication
 {
     public class Program
     {

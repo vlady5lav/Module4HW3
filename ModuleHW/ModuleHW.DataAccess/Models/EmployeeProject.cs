@@ -1,13 +1,9 @@
 ﻿using System;
 
-namespace ModuleHW.Models
+namespace ModuleHW.DataAccess.Models
 {
     public class EmployeeProject
     {
-        public EmployeeProject()
-        {
-        }
-
         public int Id { get; set; }
         public decimal Rate { get; set; }
         public DateTime StartedDate { get; set; }

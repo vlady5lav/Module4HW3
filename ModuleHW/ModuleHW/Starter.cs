@@ -3,8 +3,9 @@ using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ModuleHW.DataAccess;
 
-namespace ModuleHW
+namespace ModuleHW.StartApplication
 {
     public class Starter
     {
@@ -20,14 +21,10 @@ namespace ModuleHW
 
                 var serviceProvider = new ServiceCollection()
                     .AddTransient<ApplicationContext>()
-                    .AddDbContext<ApplicationContext>(s => s.UseSqlServer(connectionString, s => s.CommandTimeout(20)))
+                    .AddDbContext<ApplicationContext>(s => s.UseSqlServer(connectionString, s => s.CommandTimeout(30)))
                     .BuildServiceProvider();
 
                 using var db = serviceProvider.GetService<ApplicationContext>();
-
-                // var dbContextOptionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
-                // dbContextOptionsBuilder.UseSqlServer(connectionString, s => s.CommandTimeout(20));
-                // using var db = new ApplicationContext(dbContextOptionsBuilder.Options);
 
                 db.Database.Migrate();
                 db.SaveChanges();

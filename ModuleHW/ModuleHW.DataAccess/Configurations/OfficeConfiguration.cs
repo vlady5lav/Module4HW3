@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ModuleHW.Models;
+using ModuleHW.DataAccess.Models;
 
-namespace ModuleHW.Configurations
+namespace ModuleHW.DataAccess.Configurations
 {
     public class OfficeConfiguration : IEntityTypeConfiguration<Office>
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using ModuleHW.Configurations;
-using ModuleHW.Models;
+using ModuleHW.DataAccess.Configurations;
+using ModuleHW.DataAccess.Models;
 
-namespace ModuleHW
+namespace ModuleHW.DataAccess
 {
     public class ApplicationContext : DbContext
     {
