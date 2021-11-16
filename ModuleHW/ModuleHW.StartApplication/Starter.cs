@@ -20,8 +20,7 @@ namespace ModuleHW.StartApplication
                 var connectionString = configuration.GetConnectionString("SuperTestDB123");
 
                 var serviceProvider = new ServiceCollection()
-                    .AddTransient<ApplicationContext>()
-                    .AddDbContext<ApplicationContext>(s => s.UseSqlServer(connectionString, s => s.CommandTimeout(30)))
+                    .AddDbContext<ApplicationContext>(optionsBuilder => optionsBuilder.UseSqlServer(connectionString, s => s.CommandTimeout(30)))
                     .BuildServiceProvider();
 
                 using var db = serviceProvider.GetService<ApplicationContext>();
