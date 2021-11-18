@@ -23,12 +23,12 @@ namespace ModuleHW.DataAccess.Configurations
 
             builder.HasData(new List<Project>()
             {
-                new Project() { Id = 1, Name = "Anaconda", Budget = 10000.0M, ClientId = 1, StartedDate = new DateTime(2021, 11, 01), },
-                new Project() { Id = 2, Name = "Cyclon", Budget = 20000.0M, ClientId = 2, StartedDate = new DateTime(2021, 11, 02), },
-                new Project() { Id = 3, Name = "Drager", Budget = 30000.0M, ClientId = 3, StartedDate = new DateTime(2021, 11, 03), },
-                new Project() { Id = 4, Name = "Golum", Budget = 40000.0M, ClientId = 4, StartedDate = new DateTime(2021, 11, 04), },
-                new Project() { Id = 5, Name = "Oblivion", Budget = 50000.0M, ClientId = 5, StartedDate = new DateTime(2021, 11, 05), },
-                new Project() { Id = 6, Name = "Raptor", Budget = 60000.0M, ClientId = 5, StartedDate = new DateTime(2021, 11, 06), },
+                new Project() { Id = 1, Name = "Anaconda [1]", Budget = 10000.0M, ClientId = 1, StartedDate = new DateTime(2021, 11, 01), },
+                new Project() { Id = 2, Name = "Cyclon [2]", Budget = 20000.0M, ClientId = 2, StartedDate = new DateTime(2021, 11, 02), },
+                new Project() { Id = 3, Name = "Drager [3]", Budget = 30000.0M, ClientId = 3, StartedDate = new DateTime(2021, 11, 03), },
+                new Project() { Id = 4, Name = "Golum [4]", Budget = 40000.0M, ClientId = 4, StartedDate = new DateTime(2021, 11, 04), },
+                new Project() { Id = 5, Name = "Oblivion [5]", Budget = 50000.0M, ClientId = 5, StartedDate = new DateTime(2021, 11, 05), },
+                new Project() { Id = 6, Name = "Raptor [6]", Budget = 60000.0M, ClientId = 5, StartedDate = new DateTime(2021, 11, 06), },
             });
         }
     }

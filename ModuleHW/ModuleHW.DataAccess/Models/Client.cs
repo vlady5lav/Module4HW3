@@ -15,6 +15,6 @@ namespace ModuleHW.DataAccess.Models
         public string Email { get; set; }
         public string Company { get; set; }
         public string Location { get; set; }
-        public List<Project> Projects { get; set; }
+        public virtual List<Project> Projects { get; set; }
     }
 }

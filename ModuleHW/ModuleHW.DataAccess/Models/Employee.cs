@@ -15,10 +15,10 @@ namespace ModuleHW.DataAccess.Models
         public string LastName { get; set; }
         public DateTime HiredDate { get; set; }
         public DateTime? DateOfBirth { get; set; }
-        public int OfficeId { get; set; }
-        public Office Office { get; set; }
-        public int TitleId { get; set; }
-        public Title Title { get; set; }
-        public List<EmployeeProject> EmployeeProject { get; set; }
+        public int? OfficeId { get; set; }
+        public virtual Office Office { get; set; }
+        public int? TitleId { get; set; }
+        public virtual Title Title { get; set; }
+        public virtual List<EmployeeProject> EmployeeProject { get; set; }
     }
 }

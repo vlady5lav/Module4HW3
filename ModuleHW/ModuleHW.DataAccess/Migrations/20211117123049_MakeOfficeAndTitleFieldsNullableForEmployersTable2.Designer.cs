@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModuleHW.DataAccess;
 
 namespace ModuleHW.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211117123049_MakeOfficeAndTitleFieldsNullableForEmployersTable2")]
+    partial class MakeOfficeAndTitleFieldsNullableForEmployersTable2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,9 +167,9 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfBirth = new DateTime(1981, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(1981, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [1]",
-                            HiredDate = new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2011, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [1]",
                             OfficeId = 1,
                             TitleId = 1
@@ -175,9 +177,9 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            DateOfBirth = new DateTime(1986, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(1986, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [2]",
-                            HiredDate = new DateTime(2013, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2013, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [2]",
                             OfficeId = 2,
                             TitleId = 2
@@ -185,9 +187,9 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            DateOfBirth = new DateTime(1991, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(1991, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [3]",
-                            HiredDate = new DateTime(2015, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2015, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [3]",
                             OfficeId = 3,
                             TitleId = 3
@@ -195,9 +197,9 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            DateOfBirth = new DateTime(1996, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(1996, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [4]",
-                            HiredDate = new DateTime(2017, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2017, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [4]",
                             OfficeId = 4,
                             TitleId = 4
@@ -205,9 +207,9 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            DateOfBirth = new DateTime(2001, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(2001, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [5]",
-                            HiredDate = new DateTime(2019, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2019, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [5]",
                             OfficeId = 5,
                             TitleId = 5
@@ -215,9 +217,9 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 6,
-                            DateOfBirth = new DateTime(2006, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(2006, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [6]",
-                            HiredDate = new DateTime(2021, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2021, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [6]",
                             OfficeId = 6,
                             TitleId = 6
@@ -225,27 +227,27 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 7,
-                            DateOfBirth = new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(2011, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [7]",
-                            HiredDate = new DateTime(2019, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2019, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [7]",
                             OfficeId = 4
                         },
                         new
                         {
                             Id = 8,
-                            DateOfBirth = new DateTime(2016, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(2016, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [8]",
-                            HiredDate = new DateTime(2017, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2017, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [8]",
                             TitleId = 2
                         },
                         new
                         {
                             Id = 9,
-                            DateOfBirth = new DateTime(2021, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            DateOfBirth = new DateTime(2021, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             FirstName = "FName [9]",
-                            HiredDate = new DateTime(2015, 11, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            HiredDate = new DateTime(2015, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             LastName = "LName [9]"
                         });
                 });
@@ -280,56 +282,6 @@ namespace ModuleHW.DataAccess.Migrations
                     b.HasIndex("ProjectId");
 
                     b.ToTable("EmployeeProject");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            EmployeeId = 1,
-                            ProjectId = 5,
-                            Rate = 3000m,
-                            StartedDate = new DateTime(2021, 9, 19, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EmployeeId = 2,
-                            ProjectId = 4,
-                            Rate = 4000m,
-                            StartedDate = new DateTime(2021, 9, 29, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            EmployeeId = 3,
-                            ProjectId = 3,
-                            Rate = 5000m,
-                            StartedDate = new DateTime(2021, 10, 9, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            EmployeeId = 4,
-                            ProjectId = 2,
-                            Rate = 6000m,
-                            StartedDate = new DateTime(2021, 10, 19, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            EmployeeId = 5,
-                            ProjectId = 1,
-                            Rate = 7000m,
-                            StartedDate = new DateTime(2021, 10, 29, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            Id = 6,
-                            EmployeeId = 5,
-                            ProjectId = 6,
-                            Rate = 8000m,
-                            StartedDate = new DateTime(2021, 11, 8, 0, 0, 0, 0, DateTimeKind.Local)
-                        });
                 });
 
             modelBuilder.Entity("ModuleHW.DataAccess.Models.Office", b =>
@@ -517,7 +469,7 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            Name = "A title 2"
+                            Name = "Title 2"
                         },
                         new
                         {
@@ -532,12 +484,12 @@ namespace ModuleHW.DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            Name = "A title 5"
+                            Name = "Title 5"
                         },
                         new
                         {
                             Id = 6,
-                            Name = "A Title 6"
+                            Name = "Title 6"
                         });
                 });
 

@@ -11,6 +11,6 @@ namespace ModuleHW.DataAccess.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Employee> Employees { get; set; }
+        public virtual List<Employee> Employees { get; set; }
     }
 }
