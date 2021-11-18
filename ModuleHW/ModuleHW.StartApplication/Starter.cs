@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -131,12 +130,12 @@ namespace ModuleHW.StartApplication
                             db.SaveChanges();
                         }
 
-                        IEnumerable<Employee> employees1 = db.Employees
-                            .Where(e => e.FirstName.Contains("FName"))
+                        var employees1 = db.Employees
+                            .Where(e => EF.Functions.Like(e.FirstName, "FName%"))
                             .AsEnumerable()
                             .Select(e =>
                             {
-                                e.FirstName = $"UpdatedFirstName{e.FirstName[(e.FirstName.Length - 4) ..e.FirstName.Length]}";
+                                e.FirstName = $"UpdatedFirstName{e.FirstName[(e.FirstName.Length - 4) .. e.FirstName.Length]}";
                                 return e;
                             });
 
@@ -150,12 +149,12 @@ namespace ModuleHW.StartApplication
                             Console.WriteLine("\nFirstName of Employees changed to UpdatedFirstName...");
                         }
 
-                        IEnumerable<Employee> employees2 = db.Employees
-                            .Where(e => e.FirstName.Contains("UpdatedFirstName"))
+                        var employees2 = db.Employees
+                            .Where(e => EF.Functions.Like(e.FirstName, "UpdatedFirstName%"))
                             .AsEnumerable()
                             .Select(e =>
                             {
-                                e.FirstName = $"FName{e.FirstName[(e.FirstName.Length - 4) ..e.FirstName.Length]}";
+                                e.FirstName = $"FName{e.FirstName[(e.FirstName.Length - 4) .. e.FirstName.Length]}";
                                 return e;
                             });
 
@@ -289,9 +288,6 @@ namespace ModuleHW.StartApplication
 
                 using (var db = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<ApplicationContext>())
                 {
-                    db.Database.CloseConnection();
-                    db.Database.OpenConnection();
-
                     var empTitles1 = from emp in db.Employees
                                      group emp by emp.Title.Name into emptitle
                                      where !EF.Functions.Like(emptitle.Key, "%A%")
