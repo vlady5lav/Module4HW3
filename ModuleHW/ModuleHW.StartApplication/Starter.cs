@@ -288,20 +288,31 @@ namespace ModuleHW.StartApplication
 
                 using (var db = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<ApplicationContext>())
                 {
-                    var empTitles1 = from emp in db.Employees
-                                     group emp by emp.Title.Name into emptitle
-                                     where !EF.Functions.Like(emptitle.Key, "%A%")
-                                     select new
-                                     {
-                                         Name = emptitle.Key,
-                                         Count = emptitle.Count(),
-                                     };
+                    var emptitles = db.Employees
+                        .Where(e => !EF.Functions.Like(e.Title.Name, "%A%"))
+                        .ToList()
+                        .GroupBy(e => e.Title.Name)
+                        .Select(g => g)
+                        .ToList();
 
-                    foreach (var empTitle in empTitles1)
+                    foreach (var emptitle in emptitles)
                     {
-                        Console.WriteLine(
-                             $"{Environment.NewLine}" +
-                             $"Employees with Title \"{empTitle.Name}\" - {empTitle.Count}");
+                        Console.WriteLine($"\nList of Employees with Title.Name \"{emptitle.Key}\" ({emptitle.Count()} pcs):");
+
+                        foreach (var emp in emptitle)
+                        {
+                            Console.WriteLine(
+                                $"{Environment.NewLine}" +
+                                $"Id: {emp?.Id}\n" +
+                                $"Name: {emp?.FirstName} {emp?.LastName}\n" +
+                                $"OfficeId: {emp?.OfficeId.GetValueOrDefault(-1)}\n" +
+                                $"OfficeName: {emp?.Office?.Name}\n" +
+                                $"TitleId: {emp?.TitleId.GetValueOrDefault(-1)}\n" +
+                                $"Title: {emp?.Title?.Name}\n" +
+                                $"HiredDate: {emp?.HiredDate}\n" +
+                                $"ProjectName: {string.Join($",\t", emp.EmployeeProject.Select(ep => ep.Project.Name).DefaultIfEmpty("[EMPTY]"))}\n" +
+                                $"StartedDate: {string.Join($",\t", emp.EmployeeProject.Select(ep => ep.StartedDate.ToShortDateString()).DefaultIfEmpty("[EMPTY]"))}");
+                        }
                     }
                 }
 
